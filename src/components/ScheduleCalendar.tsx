@@ -8,7 +8,7 @@ interface ScheduleCalendarProps {
 
 const ScheduleCalendar: React.FC<ScheduleCalendarProps> = ({ slots, onSelectSlot }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-lg border border-neutral-200 p-6 mb-6 font-sans">
+    <div className="bg-white rounded-3xl shadow-lg border border-neutral-200 p-6 mb-6 font-sans">
       <h2 className="text-xl font-bold mb-4 text-neutral-900">Available Time Slots</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {slots.map((slot) => (
