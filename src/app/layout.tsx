@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import React from "react";
-import Link from "next/link";
+import { Navigation } from "@/components";
 
 export const metadata: Metadata = {
   title: "Swimming Course App",
@@ -18,15 +18,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                 <span className="text-white text-lg font-bold">🏊‍♂️</span>
               </div>
-              <span className="text-xl font-bold text-[#1a1a1a]">Swim Coach</span>
+              <span style={{
+                fontSize: '20px',
+                fontWeight: '800',
+                color: '#111827'
+              }}>
+                Swim Coach
+              </span>
             </div>
-            <div className="flex gap-8 text-sm font-medium text-[#64748b]">
-              <Link href="/" className="hover:text-[#1a1a1a] transition-colors duration-200">Home</Link>
-              <Link href="/courses" className="hover:text-[#1a1a1a] transition-colors duration-200">Courses</Link>
-              <Link href="/schedule" className="hover:text-[#1a1a1a] transition-colors duration-200">Schedule</Link>
-              <Link href="/about" className="hover:text-[#1a1a1a] transition-colors duration-200">About</Link>
-              <Link href="/contact" className="hover:text-[#1a1a1a] transition-colors duration-200">Contact</Link>
-            </div>
+            <Navigation />
           </nav>
         </header>
         <main className="max-w-6xl mx-auto px-6 py-12 min-h-[80vh]">{children}</main>

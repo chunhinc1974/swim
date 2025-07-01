@@ -29,11 +29,40 @@ export default function SchedulePage() {
 
   return (
     <main className="max-w-3xl mx-auto py-8 px-4 space-y-8">
-      <h1 className="text-3xl font-bold mb-6">Book a Lesson</h1>
+      <h1 style={{
+        color: '#111827',
+        fontSize: '32px',
+        fontWeight: '800',
+        marginBottom: '24px',
+        textAlign: 'center' as const,
+        lineHeight: '1.2'
+      }}>
+        Book a Lesson
+      </h1>
       <ScheduleCalendar slots={slots} onSelectSlot={handleSelectSlot} />
       <div>
-        <h2 className="text-xl font-semibold mb-2">Booking Form</h2>
-        {success && <div className="text-green-600 mb-2">{success}</div>}
+        <h2 style={{
+          color: '#111827',
+          fontSize: '24px',
+          fontWeight: '700',
+          marginBottom: '16px'
+        }}>
+          Booking Form
+        </h2>
+        {success && (
+          <div style={{
+            color: '#059669',
+            backgroundColor: '#ecfdf5',
+            border: '2px solid #a7f3d0',
+            padding: '12px 16px',
+            borderRadius: '8px',
+            marginBottom: '16px',
+            fontWeight: '600',
+            fontSize: '14px'
+          }}>
+            {success}
+          </div>
+        )}
         <BookingForm
           courses={courses.map((c: Course) => ({ id: c.id, title: c.title }))}
           onSubmit={handleSubmit}
