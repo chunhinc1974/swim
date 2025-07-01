@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import React from "react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Swimming Course App",
@@ -20,11 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="text-xl font-bold text-[#1a1a1a]">Swim Coach</span>
             </div>
             <div className="flex gap-8 text-sm font-medium text-[#64748b]">
-              <a href="/" className="hover:text-[#1a1a1a] transition-colors duration-200">Home</a>
-              <a href="/courses" className="hover:text-[#1a1a1a] transition-colors duration-200">Courses</a>
-              <a href="/schedule" className="hover:text-[#1a1a1a] transition-colors duration-200">Schedule</a>
-              <a href="/about" className="hover:text-[#1a1a1a] transition-colors duration-200">About</a>
-              <a href="/contact" className="hover:text-[#1a1a1a] transition-colors duration-200">Contact</a>
+              <Link href="/" className="hover:text-[#1a1a1a] transition-colors duration-200">Home</Link>
+              <Link href="/courses" className="hover:text-[#1a1a1a] transition-colors duration-200">Courses</Link>
+              <Link href="/schedule" className="hover:text-[#1a1a1a] transition-colors duration-200">Schedule</Link>
+              <Link href="/about" className="hover:text-[#1a1a1a] transition-colors duration-200">About</Link>
+              <Link href="/contact" className="hover:text-[#1a1a1a] transition-colors duration-200">Contact</Link>
             </div>
           </nav>
         </header>

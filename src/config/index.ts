@@ -1,9 +1,51 @@
 // Configuration and mock data for Swimming App
 // Replace mock API functions with real endpoints in production
 
+// --- Types ---
+export interface Course {
+  id: string;
+  title: string;
+  description: string;
+  duration: string;
+  price: number;
+  targetAudience: string;
+  level: string;
+  image: string;
+}
+
+export interface Achievement {
+  year: number;
+  title: string;
+}
+
+export interface CoachProfile {
+  name: string;
+  bio: string;
+  certifications: string[];
+  achievements: Achievement[];
+  phoneNumber: string;
+}
+
+export interface ScheduleSlot {
+  id: number;
+  courseId: string;
+  date: string;
+  time: string;
+  available: boolean;
+}
+
+export interface BookingRequest {
+  courseId: string;
+  name: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+}
+
 // --- Mock Data ---
 
-export const COURSES = [
+export const COURSES: Course[] = [
   {
     id: 'beginner',
     title: 'Beginner Swimming',
@@ -46,7 +88,7 @@ export const COURSES = [
   },
 ];
 
-export const COACH_PROFILE = {
+export const COACH_PROFILE: CoachProfile = {
   name: 'Coach Alex Lee',
   bio: 'Certified swim coach with 15+ years of experience. Passionate about helping swimmers of all ages achieve their goals.',
   certifications: [
@@ -62,7 +104,7 @@ export const COACH_PROFILE = {
   phoneNumber: '1234567890', // For WhatsApp
 };
 
-export const SCHEDULE = [
+export const SCHEDULE: ScheduleSlot[] = [
   // Example slots (normally fetched from an API)
   { id: 1, courseId: 'beginner', date: '2024-07-01', time: '10:00', available: true },
   { id: 2, courseId: 'intermediate', date: '2024-07-02', time: '14:00', available: true },
@@ -75,7 +117,7 @@ export const SCHEDULE = [
 /**
  * Simulate GET request for courses
  */
-export async function getCourses() {
+export async function getCourses(): Promise<Course[]> {
   // Replace with actual API call
   return Promise.resolve(COURSES);
 }
@@ -83,7 +125,7 @@ export async function getCourses() {
 /**
  * Simulate GET request for schedule
  */
-export async function getSchedule() {
+export async function getSchedule(): Promise<ScheduleSlot[]> {
   // Replace with actual API call
   return Promise.resolve(SCHEDULE);
 }
@@ -92,14 +134,7 @@ export async function getSchedule() {
  * Simulate POST request for booking
  * @param booking Booking details
  */
-export async function bookAppointment(booking: {
-  courseId: string;
-  name: string;
-  email: string;
-  phone: string;
-  date: string;
-  time: string;
-}) {
+export async function bookAppointment(booking: BookingRequest): Promise<{ success: boolean; message: string }> {
   // Replace with actual API call
   // Simulate success response
   return Promise.resolve({ success: true, message: 'Booking confirmed!' });
@@ -108,7 +143,7 @@ export async function bookAppointment(booking: {
 /**
  * Simulate GET request for coach profile
  */
-export async function getCoachProfile() {
+export async function getCoachProfile(): Promise<CoachProfile> {
   // Replace with actual API call
   return Promise.resolve(COACH_PROFILE);
 } 

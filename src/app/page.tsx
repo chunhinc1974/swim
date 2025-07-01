@@ -1,4 +1,4 @@
-import { getCoachProfile, getCourses } from "@/config";
+import { getCoachProfile, getCourses, type Course } from "@/config";
 import { WhatsAppButton, CoachProfile, CourseCard } from "@/components";
 
 export default async function HomePage() {
@@ -81,7 +81,7 @@ export default async function HomePage() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {courses.slice(0, 2).map((course: any) => (
+          {courses.slice(0, 2).map((course: Course) => (
             <CourseCard key={course.id} {...course} />
           ))}
         </div>
@@ -98,8 +98,8 @@ export default async function HomePage() {
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4">Student Testimonials</h3>
             <p className="text-[#64748b] mb-4 leading-relaxed">
-              "The coaching was exceptional. I went from being afraid of water to swimming confidently 
-              in just a few months. The personalized approach made all the difference."
+              &ldquo;The coaching was exceptional. I went from being afraid of water to swimming confidently 
+              in just a few months. The personalized approach made all the difference.&rdquo;
             </p>
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
