@@ -1,12 +1,5 @@
 import React from "react";
-
-export interface ScheduleSlot {
-  id: number;
-  courseId: string;
-  date: string;
-  time: string;
-  available: boolean;
-}
+import type { ScheduleSlot } from "@/config";
 
 interface ScheduleCalendarProps {
   slots: ScheduleSlot[];

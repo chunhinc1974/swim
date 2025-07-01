@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
-import { getSchedule, getCourses, bookAppointment } from "@/config";
+import { getSchedule, getCourses, bookAppointment, type Course, type ScheduleSlot } from "@/config";
 import { ScheduleCalendar, BookingForm } from "@/components";
 import type { BookingFormData } from "@/components/BookingForm";
 
 export default function SchedulePage() {
-  const [slots, setSlots] = React.useState<any[]>([]);
-  const [courses, setCourses] = React.useState<any[]>([]);
-  const [selectedSlot, setSelectedSlot] = useState<any | null>(null);
+  const [slots, setSlots] = React.useState<ScheduleSlot[]>([]);
+  const [courses, setCourses] = React.useState<Course[]>([]);
+  const [selectedSlot, setSelectedSlot] = useState<ScheduleSlot | null>(null);
   const [success, setSuccess] = useState<string>("");
 
   React.useEffect(() => {
@@ -15,7 +15,7 @@ export default function SchedulePage() {
     getCourses().then(setCourses);
   }, []);
 
-  const handleSelectSlot = (slot: any) => {
+  const handleSelectSlot = (slot: ScheduleSlot) => {
     setSelectedSlot(slot);
   };
 
@@ -35,7 +35,7 @@ export default function SchedulePage() {
         <h2 className="text-xl font-semibold mb-2">Booking Form</h2>
         {success && <div className="text-green-600 mb-2">{success}</div>}
         <BookingForm
-          courses={courses.map((c: any) => ({ id: c.id, title: c.title }))}
+          courses={courses.map((c: Course) => ({ id: c.id, title: c.title }))}
           onSubmit={handleSubmit}
           initialValues={selectedSlot ? {
             courseId: selectedSlot.courseId,

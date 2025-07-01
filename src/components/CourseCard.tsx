@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface CourseCardProps {
   image: string;
@@ -34,11 +35,12 @@ const CourseCard: React.FC<CourseCardProps> = ({
 
   return (
     <div className={`modern-card overflow-hidden ${getCardGradient(level)}`}>
-      <div className="aspect-[4/3] overflow-hidden">
-        <img
+      <div className="aspect-[4/3] overflow-hidden relative">
+        <Image
           src={image}
           alt={title}
-          className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+          fill
+          className="object-cover transition-transform duration-300 hover:scale-105"
           loading="lazy"
         />
       </div>

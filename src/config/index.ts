@@ -134,6 +134,7 @@ export async function getSchedule(): Promise<ScheduleSlot[]> {
  * Simulate POST request for booking
  * @param booking Booking details
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function bookAppointment(booking: BookingRequest): Promise<{ success: boolean; message: string }> {
   // Replace with actual API call
   // Simulate success response
